@@ -8,8 +8,8 @@
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
-# Student side autograding was added by Brad Miller, Nick Hay,
-# Pieter Abbeel (pabbeel@cs.berkeley.edu), and Noemi Chulo.
+# Student side autograding was added by Brad Miller, Nick Hay, and
+# Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
 
 "Common code for autograders"
@@ -24,7 +24,7 @@ import util
 class Grades:
   "A data structure for project grades, along with formatting code to display them"
   def __init__(self, projectName, questionsAndMaxesList,
-               gsOutput=False, edxOutput=False, muteOutput=False, questionTimeouts={}):
+               gsOutput=False, edxOutput=False, muteOutput=False):
     """
     Defines the grading scheme for a project
       projectName: project name
@@ -42,7 +42,6 @@ class Grades:
     self.gsOutput = gsOutput  # GradeScope output
     self.mute = muteOutput
     self.prereqs = defaultdict(set)
-    self.questionTimeouts = questionTimeouts
 
     #print('Autograder transcript for %s' % self.project)
     print('Starting on %d-%d at %d:%02d:%02d' % self.start)
@@ -57,7 +56,6 @@ class Grades:
     """
 
     completedQuestions = set([])
-    timedOutQuestions = set([]) # The set of questions for which the autograder timed out, used to print at the end
     for q in self.questions:
       print('\nQuestion %s' % q)
       print('=' * (9 + len(q)))
@@ -75,11 +73,8 @@ class Grades:
 
       if self.mute: util.mutePrint()
       try:
-        timeout = self.questionTimeouts[q] if q in self.questionTimeouts else 1800
-        util.TimeoutFunction(getattr(gradingModule, q), timeout)(self) # Call the question's function
-      except util.TimeoutFunctionException:
-        timedOutQuestions.add(q)
-        self.fail('Timeout: program took too long to run.')
+        util.TimeoutFunction(getattr(gradingModule, q),1800)(self) # Call the question's function
+        #TimeoutFunction(getattr(gradingModule, q),1200)(self) # Call the question's function
       except Exception as inst:
         self.addExceptionMessage(q, inst, traceback)
         self.addErrorHints(exceptionMap, inst, q[1])
@@ -98,7 +93,7 @@ class Grades:
     print("\nProvisional grades\n==================")
 
     for q in self.questions:
-      print('Question %s: %d/%d %s' % (q, self.points[q], self.maxes[q], "program timed out" if q in timedOutQuestions else ""))
+      print('Question %s: %d/%d' % (q, self.points[q], self.maxes[q]))
     print('------------------')
     print('Total: %d/%d' % (self.points.totalCount(), sum(self.maxes.values())))
     if bonusPic and self.points.totalCount() == 25:

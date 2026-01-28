@@ -87,17 +87,84 @@ def depthFirstSearch(problem: SearchProblem):
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
     """
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+
+    initialState = problem.getStartState()
+    from util import Stack
+    s = Stack()
+    s.push((initialState, []))
+    visit = {initialState: True}
+    while not s.isEmpty():
+        currentState, actions = s.pop()
+        visit[currentState] = True # after pop mark it as traversed
+        if(problem.isGoalState(currentState)):
+            return actions
+        
+        for nextStep in problem.getSuccessors(currentState):
+            nextState, nextAction, nextStepCost = nextStep
+            if nextState in visit:
+                continue
+            
+            # print(currentState, "->", nextState)
+            s.push((nextState, actions + [nextAction]))
+    
+    
 
 def breadthFirstSearch(problem: SearchProblem):
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    initialState = problem.getStartState()
+    from util import Queue
+    q = Queue()
+    q.push((initialState, []))
+    visit = {initialState: True}
+    while not q.isEmpty():
+        currentState, actions = q.pop()
+        if(problem.isGoalState(currentState)):
+            return actions
+        
+        for nextStep in problem.getSuccessors(currentState):
+            nextState, nextAction, nextStepCost = nextStep
+            if nextState in visit:
+                continue
+            visit[nextState] = True
+            q.push((nextState, actions + [nextAction]))
+
 
 def uniformCostSearch(problem: SearchProblem):
     """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+
+    # def print_heap(h):
+    #     print("Current heap (list order):")
+    #     for entry in h.heap:
+    #         print(entry)
+    #     print("-" * 40)
+
+    initialState = problem.getStartState()
+    from util import PriorityQueue
+    h = PriorityQueue()
+    h.push((initialState, [], 0), 0)
+    visit = set()
+
+    while not h.isEmpty():
+        currentState, actions, cost = h.pop()
+        if currentState in visit:
+            continue
+        visit.add(currentState)
+
+        if(problem.isGoalState(currentState)):
+            return actions
+        
+        for nextStep in problem.getSuccessors(currentState):
+            nextState, nextAction, nextStepCost = nextStep
+            # print(currentState, "->", nextState, " : ", cost, "->", cost + nextStepCost)
+
+            if nextState not in visit:
+                h.update((nextState, actions + [nextAction], cost + nextStepCost), cost + nextStepCost)
+            else:
+                continue
+
+            # print_heap(h)
 
 def nullHeuristic(state, problem=None):
     """
@@ -109,7 +176,39 @@ def nullHeuristic(state, problem=None):
 def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    # def print_heap(h):
+    #     print("Current heap (list order):")
+    #     for entry in h.heap:
+    #         print(entry)
+    #     print("-" * 40)
+
+    initialState = problem.getStartState()
+    from util import PriorityQueue
+    h = PriorityQueue()
+    h.push((initialState, [], 0), 0)
+    visit = set()
+
+    while not h.isEmpty():
+        currentState, actions, cost = h.pop()
+        if currentState in visit:
+            continue
+        visit.add(currentState)
+
+        if(problem.isGoalState(currentState)):
+            return actions
+        
+        for nextStep in problem.getSuccessors(currentState):
+            nextState, nextAction, nextStepCost = nextStep
+            new_cost = cost + nextStepCost
+            new_heuristic = heuristic(nextState, problem) + new_cost
+            # print(currentState, "->", nextState, " : ", cost, "->", new_cost)
+
+            if nextState not in visit:
+                h.update((nextState, actions + [nextAction], new_cost), new_heuristic)
+            else:
+                continue
+
+            # print_heap(h)
 
 
 # Abbreviations

@@ -1,0 +1,72 @@
+
+================================================================================
+命令: python autograder.py -q q3
+开始时间: 2026-01-29 01:12:44
+================================================================================
+
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:275: SyntaxWarning: invalid escape sequence '\.'
+  tests = filter(lambda t: re.match('[^#~.].*\.test\Z', t), os.listdir(subdir_path))
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:276: SyntaxWarning: invalid escape sequence '\.'
+  tests = map(lambda t: re.match('(.*)\.test\Z', t).group(1), tests)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:349: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', cp).group(1)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:351: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', options.testCaseCode).group(1)
+Starting on 1-29 at 1:12:44
+
+Question q3
+===========
+*** PASS: test_cases\q3\graph_backtrack.test
+*** 	solution:		['1:A->C', '0:C->G']
+*** 	expanded_states:	['A', 'B', 'C', 'D']
+*** PASS: test_cases\q3\graph_bfs_vs_dfs.test
+*** 	solution:		['1:A->G']
+*** 	expanded_states:	['A', 'B']
+*** PASS: test_cases\q3\graph_infinite.test
+*** 	solution:		['0:A->B', '1:B->C', '1:C->G']
+*** 	expanded_states:	['A', 'B', 'C']
+*** PASS: test_cases\q3\graph_manypaths.test
+*** 	solution:		['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+*** 	expanded_states:	['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+*** PASS: test_cases\q3\ucs_0_graph.test
+*** 	solution:		['Right', 'Down', 'Down']
+*** 	expanded_states:	['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q3\ucs_1_problemC.test
+*** 	pacman layout:		mediumMaze
+*** 	solution length: 68
+*** 	nodes expanded:		269
+*** PASS: test_cases\q3\ucs_2_problemE.test
+*** 	pacman layout:		mediumMaze
+*** 	solution length: 74
+*** 	nodes expanded:		260
+*** PASS: test_cases\q3\ucs_3_problemW.test
+*** 	pacman layout:		mediumMaze
+*** 	solution length: 152
+*** 	nodes expanded:		173
+*** PASS: test_cases\q3\ucs_4_testSearch.test
+*** 	pacman layout:		testSearch
+*** 	solution length: 7
+*** 	nodes expanded:		14
+*** PASS: test_cases\q3\ucs_5_goalAtDequeue.test
+*** 	solution:		['1:A->B', '0:B->C', '0:C->G']
+*** 	expanded_states:	['A', 'B', 'C']
+
+### Question q3: 3/3 ###
+
+
+Finished at 1:12:44
+
+Provisional grades
+==================
+Question q3: 3/3
+------------------
+Total: 3/3
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+================================================================================
+结束时间: 2026-01-29 01:12:44
+返回码: 0
+================================================================================

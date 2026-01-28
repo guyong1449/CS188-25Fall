@@ -8,8 +8,8 @@
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
-# Student side autograding was added by Brad Miller, Nick Hay,
-# Pieter Abbeel (pabbeel@cs.berkeley.edu), and edited by Noemi Chulo.
+# Student side autograding was added by Brad Miller, Nick Hay, and
+# Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
 
 # imports from python standard library
@@ -259,9 +259,7 @@ def evaluate(generateSolutions, testRoot, moduleDict, exceptionMap=ERROR_HINT_MA
 
     questions = []
     questionDicts = {}
-    questionTimeouts = {} # grader timeouts for each question
     test_subdirs = getTestSubdirs(testParser, testRoot, questionToGrade)
-
     for q in test_subdirs:
         subdir_path = os.path.join(testRoot, q)
         if not os.path.isdir(subdir_path) or q[0] == '.':
@@ -272,13 +270,10 @@ def evaluate(generateSolutions, testRoot, moduleDict, exceptionMap=ERROR_HINT_MA
         questionClass = getattr(testClasses, questionDict['class'])
         question = questionClass(questionDict, display)
         questionDicts[q] = questionDict
-        timeout = question.getTimeout()
-        if timeout:
-            questionTimeouts[q] = timeout
 
         # load test cases into question
-        tests = filter(lambda t: re.match(r'[^#~.].*\.test\Z', t), os.listdir(subdir_path))
-        tests = map(lambda t: re.match(r'(.*)\.test\Z', t).group(1), tests)
+        tests = filter(lambda t: re.match('[^#~.].*\.test\Z', t), os.listdir(subdir_path))
+        tests = map(lambda t: re.match('(.*)\.test\Z', t).group(1), tests)
         for t in sorted(tests):
             test_file = os.path.join(subdir_path, '%s.test' % t)
             solution_file = os.path.join(subdir_path, '%s.solution' % t)
@@ -310,7 +305,7 @@ def evaluate(generateSolutions, testRoot, moduleDict, exceptionMap=ERROR_HINT_MA
         questions.append((q, question.getMaxPoints()))
 
     grades = grading.Grades(projectParams.PROJECT_NAME, questions,
-                            gsOutput=gsOutput, edxOutput=edxOutput, muteOutput=muteOutput, questionTimeouts=questionTimeouts)
+                            gsOutput=gsOutput, edxOutput=edxOutput, muteOutput=muteOutput)
     if questionToGrade == None:
         for q in questionDicts:
             for prereq in questionDicts[q].get('depends', '').split():
@@ -344,16 +339,16 @@ if __name__ == '__main__':
     codePaths = options.studentCode.split(',')
     # moduleCodeDict = {}
     # for cp in codePaths:
-    #     moduleName = re.match(r'.*?([^/]*)\.py', cp).group(1)
+    #     moduleName = re.match('.*?([^/]*)\.py', cp).group(1)
     #     moduleCodeDict[moduleName] = readFile(cp, root=options.codeRoot)
     # moduleCodeDict['projectTestClasses'] = readFile(options.testCaseCode, root=options.codeRoot)
     # moduleDict = loadModuleDict(moduleCodeDict)
 
     moduleDict = {}
     for cp in codePaths:
-        moduleName = re.match(r'.*?([^/]*)\.py', cp).group(1)
+        moduleName = re.match('.*?([^/]*)\.py', cp).group(1)
         moduleDict[moduleName] = loadModuleFile(moduleName, os.path.join(options.codeRoot, cp))
-    moduleName = re.match(r'.*?([^/]*)\.py', options.testCaseCode).group(1)
+    moduleName = re.match('.*?([^/]*)\.py', options.testCaseCode).group(1)
     moduleDict['projectTestClasses'] = loadModuleFile(moduleName, os.path.join(options.codeRoot, options.testCaseCode))
 
 

@@ -1,0 +1,54 @@
+
+================================================================================
+命令: python autograder.py -q q2
+开始时间: 2026-01-28 22:15:28
+================================================================================
+
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:275: SyntaxWarning: invalid escape sequence '\.'
+  tests = filter(lambda t: re.match('[^#~.].*\.test\Z', t), os.listdir(subdir_path))
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:276: SyntaxWarning: invalid escape sequence '\.'
+  tests = map(lambda t: re.match('(.*)\.test\Z', t).group(1), tests)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:349: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', cp).group(1)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:351: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', options.testCaseCode).group(1)
+Starting on 1-28 at 22:15:28
+
+Question q2
+===========
+*** PASS: test_cases\q2\graph_backtrack.test
+*** 	solution:		['1:A->C', '0:C->G']
+*** 	expanded_states:	['A', 'B', 'C', 'D']
+*** PASS: test_cases\q2\graph_bfs_vs_dfs.test
+*** 	solution:		['1:A->G']
+*** 	expanded_states:	['A', 'B']
+*** PASS: test_cases\q2\graph_infinite.test
+*** 	solution:		['0:A->B', '1:B->C', '1:C->G']
+*** 	expanded_states:	['A', 'B', 'C']
+*** PASS: test_cases\q2\graph_manypaths.test
+*** 	solution:		['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+*** 	expanded_states:	['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+*** PASS: test_cases\q2\pacman_1.test
+*** 	pacman layout:		mediumMaze
+*** 	solution length: 68
+*** 	nodes expanded:		269
+
+### Question q2: 3/3 ###
+
+
+Finished at 22:15:28
+
+Provisional grades
+==================
+Question q2: 3/3
+------------------
+Total: 3/3
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+================================================================================
+结束时间: 2026-01-28 22:15:28
+返回码: 0
+================================================================================
