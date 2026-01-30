@@ -1,0 +1,71 @@
+
+================================================================================
+命令: python autograder.py -q q6
+开始时间: 2026-01-29 22:10:36
+================================================================================
+
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:275: SyntaxWarning: invalid escape sequence '\.'
+  tests = filter(lambda t: re.match('[^#~.].*\.test\Z', t), os.listdir(subdir_path))
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:276: SyntaxWarning: invalid escape sequence '\.'
+  tests = map(lambda t: re.match('(.*)\.test\Z', t).group(1), tests)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:349: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', cp).group(1)
+E:\Mywork\DKU courses\sophomore\cs204\CS188\search\autograder.py:351: SyntaxWarning: invalid escape sequence '\.'
+  moduleName = re.match('.*?([^/]*)\.py', options.testCaseCode).group(1)
+Note: due to dependencies, the following tests will be run: q4 q6
+Starting on 1-29 at 22:10:36
+
+Question q4
+===========
+*** PASS: test_cases\q4\astar_0.test
+*** 	solution:		['Right', 'Down', 'Down']
+*** 	expanded_states:	['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q4\astar_1_graph_heuristic.test
+*** 	solution:		['0', '0', '2']
+*** 	expanded_states:	['S', 'A', 'D', 'C']
+*** PASS: test_cases\q4\astar_2_manhattan.test
+*** 	pacman layout:		mediumMaze
+*** 	solution length: 68
+*** 	nodes expanded:		221
+*** PASS: test_cases\q4\astar_3_goalAtDequeue.test
+*** 	solution:		['1:A->B', '0:B->C', '0:C->G']
+*** 	expanded_states:	['A', 'B', 'C']
+*** PASS: test_cases\q4\graph_backtrack.test
+*** 	solution:		['1:A->C', '0:C->G']
+*** 	expanded_states:	['A', 'B', 'C', 'D']
+*** PASS: test_cases\q4\graph_manypaths.test
+*** 	solution:		['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+*** 	expanded_states:	['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+
+### Question q4: 3/3 ###
+
+
+Question q6
+===========
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+path: ['North', 'East', 'East', 'East', 'East', 'North', 'North', 'West', 'West', 'West', 'West', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'West', 'West', 'South', 'South', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'South', 'West', 'West', 'South', 'South', 'South', 'West', 'West', 'East', 'East', 'North', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'North', 'North', 'East', 'East', 'North', 'North']
+path length: 106
+*** PASS: Heuristic resulted in expansion of 741 nodes
+
+### Question q6: 3/3 ###
+
+
+Finished at 22:10:36
+
+Provisional grades
+==================
+Question q4: 3/3
+Question q6: 3/3
+------------------
+Total: 6/6
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+================================================================================
+结束时间: 2026-01-29 22:10:36
+返回码: 0
+================================================================================
