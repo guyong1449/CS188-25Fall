@@ -1,0 +1,62 @@
+
+================================================================================
+命令: python autograder.py -q q1
+
+开始时间: 2026-01-30 14:10:52
+================================================================================
+
+Starting on 1-30 at 14:10:52
+
+Question q1
+===========
+
+Pacman emerges victorious! Score: 1233
+Pacman emerges victorious! Score: 1241
+Pacman emerges victorious! Score: 1236
+Pacman emerges victorious! Score: 1166
+Pacman emerges victorious! Score: 1208
+Pacman emerges victorious! Score: 1225
+Pacman emerges victorious! Score: 1233
+Pacman emerges victorious! Score: 1232
+Pacman emerges victorious! Score: 1241
+Pacman emerges victorious! Score: 1234
+Average Score: 1224.9
+Scores:        1233.0, 1241.0, 1236.0, 1166.0, 1208.0, 1225.0, 1233.0, 1232.0, 1241.0, 1234.0
+Win Rate:      10/10 (1.00)
+Record:        Win, Win, Win, Win, Win, Win, Win, Win, Win, Win
+*** PASS: test_cases\q1\grade-agent.test (4 of 4 points)
+***     1224.9 average score (2 of 2 points)
+***         Grading scheme:
+***          < 500:  0 points
+***         >= 500:  1 points
+***         >= 1000:  2 points
+***     10 games not timed out (0 of 0 points)
+***         Grading scheme:
+***          < 10:  fail
+***         >= 10:  0 points
+***     10 wins (2 of 2 points)
+***         Grading scheme:
+***          < 1:  fail
+***         >= 1:  0 points
+***         >= 5:  1 points
+***         >= 10:  2 points
+
+### Question q1: 4/4 ###
+
+
+Finished at 14:12:43
+
+Provisional grades
+==================
+Question q1: 4/4
+------------------
+Total: 4/4
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+================================================================================
+结束时间: 2026-01-30 14:12:44
+返回码: 0
+================================================================================
