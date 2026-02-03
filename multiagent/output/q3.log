@@ -1,10 +1,10 @@
 
 ================================================================================
 命令: python autograder.py -q q3
-开始时间: 2026-01-31 12:07:06
+开始时间: 2026-01-31 12:58:15
 ================================================================================
 
-Starting on 1-31 at 12:07:06
+Starting on 1-31 at 12:58:15
 
 Question q3
 ===========
@@ -48,14 +48,14 @@ Average Score: 84.0
 Scores:        84.0
 Win Rate:      0/1 (0.00)
 Record:        Loss
-*** Finished running AlphaBetaAgent on smallClassic after 12 seconds.
+*** Finished running AlphaBetaAgent on smallClassic after 15 seconds.
 *** Won 0 out of 1 games. Average score: 84.000000 ***
 *** PASS: test_cases\q3\8-pacman-game.test
 
 ### Question q3: 5/5 ###
 
 
-Finished at 12:07:19
+Finished at 12:58:31
 
 Provisional grades
 ==================
@@ -68,6 +68,6 @@ to follow your instructor's guidelines to receive credit on your project.
 
 
 ================================================================================
-结束时间: 2026-01-31 12:07:19
+结束时间: 2026-01-31 12:58:31
 返回码: 0
 ================================================================================
