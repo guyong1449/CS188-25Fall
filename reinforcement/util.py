@@ -241,6 +241,9 @@ class PriorityQueue:
         else:
             self.push(item, priority)
 
+    def __len__(self):
+        return len(self.heap)
+
 
 class PriorityQueueWithFunction(PriorityQueue):
     """

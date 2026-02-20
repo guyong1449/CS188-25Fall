@@ -29,7 +29,6 @@ class CrawlingRobotEnvironment(environment.Environment):
         # where the angles are bucket numbers, not actual
         # degree measurements
         self.state = None
-
         self.nArmStates = 9
         self.nHandStates = 13
 
