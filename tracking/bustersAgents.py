@@ -149,5 +149,36 @@ class GreedyBustersAgent(BustersAgent):
             [beliefs for i, beliefs in enumerate(self.ghostBeliefs)
              if livingGhosts[i+1]]
         "*** YOUR CODE HERE ***"
-        raiseNotDefined()
+        import game
+        pacPos = gameState.getPacmanPosition()
+        legalActions = gameState.getLegalActions(0)  # Pacman index is 0
+        legalActions = [a for a in legalActions if a != Directions.STOP]  
+
+        # Step 1: get most likely position for each living ghost
+        mostLikelyGhostPositions = []
+        for dist in livingGhostPositionDistributions:
+            bestPos = None 
+            maxProb = -float('inf')
+            for pos, prob in dist.items():
+                if prob > maxProb:
+                    maxProb = prob
+                    bestPos = pos
+
+            mostLikelyGhostPositions.append(bestPos)
+
+        # Step 2: choose best action by closest ghost distance
+        bestAction = None
+        bestScore = float('inf')
+
+        for action in legalActions:
+            succPos = game.Actions.getSuccessor(pacPos, action)
+            # distance to closest ghost (using maze distance)
+            score = min(self.distancer.getDistance(succPos, gpos)
+                        for gpos in mostLikelyGhostPositions)
+
+            if score < bestScore:
+                bestScore = score
+                bestAction = action
+
+        return bestAction 
         "*** END YOUR CODE HERE ***"
